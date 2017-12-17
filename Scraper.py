@@ -33,8 +33,8 @@ def scrape(url = 'http://quotes.wsj.com/CH/XVTX/NOVN/research-ratings'):
 
     data_out = {'Avg': 0, 'Crn': 0}
 
-    data_out['Avg'] = float(remove_tags(out[data_loc['Avg']]))
-    data_out['Crn'] = float(remove_tags(out[data_loc['Crn']]))
+    data_out['Avg'] = remove_tags(out[data_loc['Avg']])
+    data_out['Crn'] = remove_tags(out[data_loc['Crn']])
 
     return data_out
 
