@@ -1,14 +1,17 @@
 import bs4 as bs
 import urllib.request
+import json
 from Scraper import scrape
 
-import datetime
+#import datetime
 
-now = datetime.datetime.now()
+#now = datetime.datetime.now()
+#date = '%s/%s'%(now.day, now.month)
 
 file = open('tags.txt', 'r')
 raw_tags = file.read()
 file.close()
+
 
 tags_list = raw_tags.split('\n')
 
@@ -23,5 +26,6 @@ def main():
     for tag in tags_list:
         final_data[tag] = scrape(make_url(tag))
 
-    return final_data
+    out = open('out.txt', 'w')
+    out.write(json.dumps(final_data))
 
