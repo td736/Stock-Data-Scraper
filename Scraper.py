@@ -17,7 +17,7 @@ def scrape(url = 'http://quotes.wsj.com/CH/XVTX/NOVN/research-ratings'):
     for s in soup.find_all('span'):
         out.append(str(s))
 
-    data_loc = {}
+    data_loc = {'Avg': 0, 'Crn': 0}
 
     for item in out:
         if 'Average' in item:
@@ -26,13 +26,12 @@ def scrape(url = 'http://quotes.wsj.com/CH/XVTX/NOVN/research-ratings'):
         if 'Current Price' in item:
             data_loc['Crn'] = out.index(item) + 1
 
-
     def remove_tags(input_str):
         input_str = input_str.replace('<span class="data_data"><sup> </sup>', '')
         input_str = input_str.replace('</span>', '')
         return input_str
 
-    data_out = {}
+    data_out = {'Avg': 0, 'Crn': 0}
 
     data_out['Avg'] = float(remove_tags(out[data_loc['Avg']]))
     data_out['Crn'] = float(remove_tags(out[data_loc['Crn']]))
