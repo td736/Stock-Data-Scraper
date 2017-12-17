@@ -6,9 +6,8 @@ import urllib.request
 '''
 
 
-def scrape(url = 'http://quotes.wsj.com/CH/XVTX/NOVN/research-ratings'):
+def scrape(url):
 
-    #sauce = urllib.request.urlopen('http://quotes.wsj.com/CH/XVTX/NOVN/research-ratings').read()
     sauce = urllib.request.urlopen(url).read()
 
     soup = bs.BeautifulSoup(sauce, 'lxml')
