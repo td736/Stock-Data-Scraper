@@ -18,6 +18,6 @@ for tag in tags_list:
 scraper = Scraper(pages)
 scraper.scrape()
 
-with open('%s-%s.txt'%(datetime.datetime.now().day,datetime.datetime.now().month), 'w') as out:
+with open('output/%s-%s.txt'%(datetime.datetime.now().day,datetime.datetime.now().month), 'w') as out:
     out.write(json.dumps(scraper.output))
 
