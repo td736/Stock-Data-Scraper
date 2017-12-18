@@ -2,7 +2,7 @@ import bs4 as bs
 import urllib.request
 
 
-class Page:
+class Page():
 
     def __init__(self, tag):
         self.tag = tag
