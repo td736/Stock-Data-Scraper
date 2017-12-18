@@ -3,6 +3,7 @@ import urllib.request
 import json
 from Scraper import scrape
 
+
 def make_url(tag):
     return 'http://quotes.wsj.com/CH/XVTX/%s/research-ratings'%tag
 
