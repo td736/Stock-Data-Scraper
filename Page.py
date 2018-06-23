@@ -4,9 +4,11 @@ import urllib.request
 
 class Page():
 
-    def __init__(self, tag):
+    def __init__(self, tag, country, code):
         self.tag = tag
-        self.url = 'http://quotes.wsj.com/CH/XVTX/%s/research-ratings' % self.tag
+        self.country = country
+        self.code = code
+        self.url = 'http://quotes.wsj.com/%s/%s/%s/research-ratings' % (self.country, self.code, self.tag)
 
         sauce = urllib.request.urlopen(self.url).read()
         soup = bs.BeautifulSoup(sauce, 'lxml')

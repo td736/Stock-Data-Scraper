@@ -20,8 +20,8 @@ class Scraper():
                     locations['Crn'] = page.raw_data.index(item) + 1
 
             self.output[page.tag]['Avg'] = page.raw_data[locations['Avg']].replace(
-                '<span class="data_data"><sup> </sup>', '').replace('</span>', '')
+                '<span class="data_data"><sup> </sup>', '').replace('</span>', '').replace('"', '')
             self.output[page.tag]['Crn'] = page.raw_data[locations['Crn']].replace(
-                '<span class="data_data"><sup> </sup>', '').replace('</span>', '')
+                '<span class="data_data"><sup> </sup>', '').replace('</span>', '').replace('"', '')
 
 

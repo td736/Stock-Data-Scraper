@@ -7,16 +7,26 @@ import datetime
 
 save_type = int(input("Select how you want to save the output\n1. txt\n2. csv\nEnter selection: "))
 
-file = open('tags.txt', 'r')
-tags = file.read()
+''' Load Switzerland  CH/XVTK'''
+file = open('ch.txt', 'r')
+ch = file.read()
+file.close(
+
+''' Load Germany  DE/XFRA'''
+file = open('de.txt', 'r')
+de = file.read()
 file.close()
 
-tags_list = tags.split('\n')
+ch_list = ch.split('\n')
+de_list = de.split('\n')
 
 pages = []
 
-for tag in tags_list:
-    pages.append(Page(tag))
+for tag in ch_list:
+    pages.append(Page(tag, 'CH', 'XVTK'))
+
+for tag in de_list:
+    pages.append(Page(tag, 'DE', 'XFRA'))
 
 scraper = Scraper(pages)
 scraper.scrape()
